@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loli Premium</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles for pro.html to ensure premium look and responsiveness */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .premium-hero {
+            background: linear-gradient(to bottom right, #1e1e1e, #2a2a2a); /* Darker, subtle gradient */
+            padding: 80px 20px; /* More padding for hero section */
+            text-align: center;
+            color: var(--text);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 40px;
+        }
+
+        .premium-hero-content h1 {
+            font-size: 3.5rem; /* Larger heading */
+            font-weight: 800; /* Extra bold */
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 45, 85, 0.6); /* Stronger glow */
+        }
+
+        .premium-hero-content p {
+            font-size: 1.4rem; /* Larger paragraph */
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+        }
+
+        .primary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-gradient); /* Reusing accent gradient */
+            padding: 15px 35px; /* Larger button */
+            border-radius: 10px; /* More rounded */
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 20px rgba(255, 45, 85, 0.4);
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .primary-btn:hover {
+            background: linear-gradient(to right, #d42045, #ff2d55); /* Reverse gradient on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 45, 85, 0.6);
+        }
+
+        .premium-features {
+            padding: 40px 20px;
+            background: var(--bg);
+            text-align: center;
+        }
+
+        .premium-features h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature i {
+            font-size: 3rem; /* Larger icons */
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(255, 45, 85, 0.4);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .premium-cta {
+            background: linear-gradient(to top left, #1a1a1a, #2a2a2a); /* Another subtle gradient */
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .premium-cta h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 15px;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+        }
+
+        .premium-cta p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .footer {
+            background: linear-gradient(to right, #1a1a1a, #2a2a2a); /* Consistent footer gradient */
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-content a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-content a:hover {
+            color: var(--primary);
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Adjustments for pro.html */
+        @media (max-width: 768px) {
+            .premium-hero {
+                padding: 60px 15px;
+            }
+            .premium-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .premium-hero-content p {
+                font-size: 1.1rem;
+            }
+            .primary-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            .premium-features h2 {
+                font-size: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr; /* Stack features on mobile */
+                gap: 20px;
+            }
+            .feature {
+                padding: 25px;
+            }
+            .feature i {
+                font-size: 2.5rem;
+            }
+            .feature h3 {
+                font-size: 1.3rem;
+            }
+            .premium-cta {
+                padding: 40px 15px;
+            }
+            .premium-cta h2 {
+                font-size: 2rem;
+            }
+            .premium-cta p {
+                font-size: 1rem;
+            }
+            .footer-content {
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .premium-hero-content h1 {
+                font-size: 3rem;
+            }
+            .premium-features h2 {
+                font-size: 2.2rem;
+            }
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER (Consistent with index.html) -->
+    <header class="nsfw-header gradient-bg-header">
+        <div class="logo">Loli</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">Categories</a>
+            <a href="pro.html" class="active">Premium</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://t.me/+Xa9CQA1GNS43MDM1" class="tg-link" target="_blank">
+                <i class="fab fa-telegram"></i> Contact
+            </a>
+        </div>
+    </header>
+
+    <!-- PREMIUM HERO SECTION -->
+    <div class="premium-hero">
+        <div class="premium-hero-content">
+            <h1>Loli Premium</h1>
+            <p>Unlock an enhanced experience with exclusive content and features.</p>
+            <a href="https://t.me/+Xa9CQA1GNS43MDM1" target="_blank" class="primary-btn">
+                <i class="fab fa-telegram"></i> Contact for Premium Access
+            </a>
+        </div>
+    </div>
+
+    <!-- PREMIUM FEATURES SECTION -->
+    <div class="premium-features">
+        <h2>Why Go Premium?</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <i class="fas fa-film"></i>
+                <h3>All Content Unlocked</h3>
+                <p>Gain unrestricted access to our entire video library.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-ad"></i>
+                <h3>Ad-Free Experience</h3>
+                <p>Enjoy uninterrupted viewing with no advertisements.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Watch Anywhere</h3>
+                <p>Stream seamlessly on all your devices, anytime, anywhere.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-download"></i>
+                <h3>Download Content</h3>
+                <p>Download your favorite videos to watch offline on the go.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREMIUM CALL TO ACTION -->
+    <div class="premium-cta">
+        <h2>Ready to elevate your experience?</h2>
+        <p>Contact us directly on Telegram to get instant premium access and unlock everything Loli has to offer.</p>
+        <a href="https://t.me/+Xa9CQA1GNS43MDM1" target="_blank" class="primary-btn large-btn">
+            <i class="fab fa-telegram"></i> Get Premium Now
+        </a>
+    </div>
+
+    <!-- FOOTER (Consistent with index.html) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="#">Terms</a>
+            <a href="pro.html">Premium</a>
+            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+        </div>
+        <div class="copyright">© 2025 Loli. All rights reserved.</div>
+    </footer>
+
+    <!-- Font Awesome JS (for icons) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loli - Premium Content</title>
+    <meta name="description" content="Adult streaming platform - 18+ only">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Age verification overlay */
+        #age-verify {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        #age-verify h1 {
+            color: #ff2d55;
+            margin-bottom: 20px;
+        }
+        #age-verify p {
+            color: #fff;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        .age-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .age-btn {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        #confirm-age {
+            background-color: var(--primary);
+            color: white;
+        }
+        #exit-site {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="age-verify">
+        <h1>Welcome to Loli</h1>
+        <p>This website contains content for adults only. You must be 18 years or older to enter. By clicking "Enter", you confirm that you are of legal age and consent to viewing this content.</p>
+        <div class="age-buttons">
+            <button id="confirm-age" class="age-btn">Enter</button>
+            <button id="exit-site" class="age-btn">Exit</button>
+        </div>
+    </div>
+    
+    <header class="nsfw-header">
+        <div class="logo">Loli</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pro.html">Premium</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://t.me/yourtelegram" class="tg-link" target="_blank">
+                <i class="fab fa-telegram"></i> Contact
+            </a>
+        </div>
+    </header>
+
+    <main class="video-grid">
+        <!-- Videos will be loaded here by JS -->
+    </main>
+
+    <footer class="nsfw-footer">
+        <div class="footer-content">
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="#">Terms</a>
+            <a href="pro.html">Premium Access</a>
+            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+        </div>
+        <div class="copyright">18+ Only. All content is user-uploaded.</div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Age verification
+        document.getElementById('confirm-age').addEventListener('click', function() {
+            document.getElementById('age-verify').style.display = 'none';
+            localStorage.setItem('ageVerified', 'true');
+        });
+        
+        document.getElementById('exit-site').addEventListener('click', function() {
+            window.location.href = 'https://www.google.com';
+        });
+        
+        // Check if already verified
+        if(localStorage.getItem('ageVerified') === 'true') {
+            document.getElementById('age-verify').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
