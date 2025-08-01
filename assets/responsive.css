@@ -1,0 +1,106 @@
+/* Mobile First Approach */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .search-box input {
+        min-width: 150px;
+    }
+    
+    .hero {
+        height: 80vh;
+        padding: 0 1rem;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .content-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    /* Change content-row from horizontal scroll to grid layout */
+    .content-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+    
+    .content-item {
+        min-width: auto;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
+    
+    .content-item:hover {
+        transform: none;
+        z-index: auto;
+    }
+    
+    .content-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+    
+    .footer-links {
+        gap: 1rem;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 1rem 2rem;
+    }
+    
+    .hero {
+        padding: 0 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .content-section {
+        padding: 2rem;
+    }
+    
+    .content-item {
+        min-width: 180px;
+        height: 270px;
+    }
+}
+
+/* Small Desktop Adjustments */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .content-item {
+        min-width: 190px;
+        height: 285px;
+    }
+}
