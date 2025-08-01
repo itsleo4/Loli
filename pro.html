@@ -230,14 +230,11 @@
     </style>
 </head>
 <body>
+    <!-- HEADER (Consistent with index.html) -->
     <header class="nsfw-header gradient-bg-header">
         <div class="logo">Loli</div>
-        <button class="hamburger" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
         <nav class="desktop-nav">
             <a href="index.html">Home</a>
-            <a href="#">Categories</a>
             <a href="pro.html" class="active">Premium</a>
         </nav>
         <div class="header-actions desktop-actions">
@@ -247,17 +244,7 @@
         </div>
     </header>
 
-    <div class="mobile-nav-overlay">
-        <nav class="mobile-nav">
-            <a href="index.html">Home</a>
-            <a href="#">Categories</a>
-            <a href="pro.html" class="active">Premium</a>
-            <a href="https://t.me/+Xa9CQA1GNS43MDM1" class="tg-link" target="_blank">
-                <i class="fab fa-telegram"></i> Contact
-            </a>
-        </nav>
-    </div>
-
+    <!-- PREMIUM HERO SECTION -->
     <div class="premium-hero">
         <div class="premium-hero-content">
             <h1>Loli Premium</h1>
@@ -268,6 +255,7 @@
         </div>
     </div>
 
+    <!-- PREMIUM FEATURES SECTION -->
     <div class="premium-features">
         <h2>Why Go Premium?</h2>
         <div class="features-grid">
@@ -294,6 +282,7 @@
         </div>
     </div>
 
+    <!-- PREMIUM CALL TO ACTION -->
     <div class="premium-cta">
         <h2>Ready to elevate your experience?</h2>
         <p>Contact us directly on Telegram to get instant premium access and unlock everything Loli has to offer.</p>
@@ -302,35 +291,18 @@
         </a>
     </div>
 
+    <!-- FOOTER (Consistent with index.html) -->
     <footer class="footer">
         <div class="footer-content">
             <a href="disclaimer.html">Disclaimer</a>
             <a href="#">Terms</a>
             <a href="pro.html">Premium</a>
-            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+            <a href="https://t.me/+Xa9CQA1GNS43MDM1" target="_blank">Telegram</a>
         </div>
         <div class="copyright">© 2025 Loli. All rights reserved.</div>
     </footer>
 
+    <!-- Font Awesome JS (for icons) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-    <script>
-        // Hamburger Menu Logic (duplicate for pro.html if it's a standalone page)
-        const hamburger = document.querySelector('.hamburger');
-        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-
-        hamburger.addEventListener('click', () => {
-            mobileNavOverlay.classList.toggle('active');
-            hamburger.classList.toggle('active'); // Optional: change icon to 'X'
-        });
-
-        // Close mobile nav when a link is clicked
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNavOverlay.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>

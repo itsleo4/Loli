@@ -67,39 +67,27 @@
 
     <header class="nsfw-header">
         <div class="logo">Loli</div>
-        <button class="hamburger" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
         <nav class="desktop-nav">
-            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="pro.html">Premium</a>
         </nav>
         <div class="header-actions desktop-actions">
-            <a href="https://t.me/yourtelegram" class="tg-link" target="_blank">
+            <a href="https://t.me/+Xa9CQA1GNS43MDM1" class="tg-link" target="_blank">
                 <i class="fab fa-telegram"></i> Contact
             </a>
         </div>
     </header>
 
-    <div class="mobile-nav-overlay">
-        <nav class="mobile-nav">
-            <a href="index.html">Home</a>
-            <a href="pro.html">Premium</a>
-            <a href="https://t.me/yourtelegram" class="tg-link" target="_blank">
-                <i class="fab fa-telegram"></i> Contact
-            </a>
-        </nav>
-    </div>
-
     <main class="video-grid">
-        </main>
+        <!-- Videos will be loaded here by JS -->
+    </main>
 
     <footer class="nsfw-footer">
         <div class="footer-content">
             <a href="disclaimer.html">Disclaimer</a>
             <a href="#">Terms</a>
             <a href="pro.html">Premium Access</a>
-            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+            <a href="https://t.me/+Xa9CQA1GNS43MDM1" target="_blank">Telegram</a>
         </div>
         <div class="copyright">18+ Only. All content is user-uploaded.</div>
     </footer>
@@ -111,33 +99,15 @@
             document.getElementById('age-verify').style.display = 'none';
             localStorage.setItem('ageVerified', 'true');
         });
-
+        
         document.getElementById('exit-site').addEventListener('click', function() {
             window.location.href = 'https://www.google.com';
         });
-
+        
         // Check if already verified
         if(localStorage.getItem('ageVerified') === 'true') {
             document.getElementById('age-verify').style.display = 'none';
         }
-
-        // Hamburger Menu Logic
-        const hamburger = document.querySelector('.hamburger');
-        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-
-        hamburger.addEventListener('click', () => {
-            mobileNavOverlay.classList.toggle('active');
-            hamburger.classList.toggle('active'); // Optional: change icon to 'X'
-        });
-
-        // Close mobile nav when a link is clicked
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNavOverlay.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
     </script>
 </body>
 </html>
