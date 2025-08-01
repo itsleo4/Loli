@@ -1,17 +1,14 @@
-// This script dynamically loads video cards from a JSON file.
-
-// Wait for the DOM to be fully loaded before running the script
+// main.js
 document.addEventListener('DOMContentLoaded', function() {
     const grid = document.querySelector('.video-grid');
     
     // Add a loading indicator while fetching the data
-    grid.innerHTML = '<div class="loading">Loading videos...</div>';
+    grid.innerHTML = '<div class="loading" style="width:100%;text-align:center;padding:2rem;">Loading videos...</div>';
 
     // Fetch the video data from the JSON file
     fetch('videos.json')
         .then(response => {
             if (!response.ok) {
-                // If the network response was not ok, throw an error
                 throw new Error('Network response was not ok');
             }
             return response.json();
@@ -24,14 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
             videos.forEach(video => {
                 // Create a link element for the video card
                 const card = document.createElement('a');
-                // The href now points to the video player page with a video ID as a query parameter
                 card.href = `video.html?id=${video.id}`;
                 card.className = 'video-card';
+                card.setAttribute('aria-label', video.title);
 
                 // Use the video data to populate the card's inner HTML
                 card.innerHTML = `
                     <div class="video-thumb">
-                        <img src="${video.thumbnail}" alt="${video.title}" onerror="this.onerror=null;this.src='https://placehold.co/400x225/2a2a2a/f0f0f0?text=No+Image';">
+                        <img src="${video.thumbnail}" alt="${video.title}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x225/2a2a2a/f0f0f0?text=No+Image'">
                         ${video.premium ? '<div class="premium-badge">PREMIUM</div>' : ''}
                     </div>
                     <div class="video-info">
@@ -49,6 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('There was a problem fetching the video data:', error);
-            grid.innerHTML = '<div class="error">Failed to load videos. Please try again later.</div>';
+            grid.innerHTML = '<div class="error" style="width:100%;text-align:center;padding:2rem;color:var(--primary)">Failed to load videos. Please try again later.</div>';
         });
 });
