@@ -50,9 +50,14 @@ body {
     text-shadow: 0 0 8px rgba(255, 45, 85, 0.4); /* Soft glow effect */
 }
 
-.nsfw-header nav {
+/* Desktop Navigation and Actions (default visible) */
+.nsfw-header .desktop-nav {
     display: flex;
     gap: 2rem; /* Spacing between navigation links */
+}
+
+.nsfw-header .desktop-actions {
+    display: flex;
 }
 
 .nsfw-header a {
@@ -89,6 +94,70 @@ body {
 .nsfw-header a:hover::after,
 .nsfw-header a.active::after {
     width: 100%;
+}
+
+/* Hamburger Icon (default hidden for desktop) */
+.hamburger {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary);
+    cursor: pointer;
+    z-index: 110; /* Above overlay */
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+    color: var(--primary-dark);
+}
+
+.hamburger.active i::before {
+    content: "\f00d"; /* Font Awesome 'X' icon */
+}
+
+/* Mobile Navigation Overlay (default hidden) */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95); /* Semi-transparent dark background */
+    backdrop-filter: blur(8px); /* Blur effect */
+    z-index: 105; /* Above content, below hamburger */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.mobile-nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem 0;
+}
+
+.mobile-nav a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
 }
 
 /* Telegram Contact Button */
@@ -439,27 +508,23 @@ body {
 /* Small devices (phones, 600px and down) */
 @media (max-width: 600px) {
     .nsfw-header {
-        flex-direction: column;
+        /* flex-direction: column; Remove this to keep logo and hamburger on same line */
         gap: 1rem;
-        padding: 1rem;
+        padding: 0.8rem 1rem; /* Adjust padding for smaller screens */
     }
-    .nsfw-header nav {
-        flex-direction: column; /* Stack nav links vertically */
-        gap: 0.5rem;
-        text-align: center;
+    .nsfw-header .desktop-nav,
+    .nsfw-header .desktop-actions {
+        display: none; /* Hide desktop nav and actions */
     }
-    .nsfw-header nav a::after { /* Hide underline on mobile nav */
-        display: none;
+    .hamburger {
+        display: block; /* Show hamburger icon */
     }
     .logo {
         font-size: 1.8rem;
     }
-    .tg-link {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-        width: 100%; /* Full width button */
-        justify-content: center;
-    }
+    /* .nsfw-header nav { Removed as we are using mobile-nav-overlay now */
+    /* .nsfw-header nav a::after { Removed as we are using mobile-nav-overlay now */
+
     .video-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Smaller cards for small phones */
         padding: 1rem;
@@ -558,6 +623,14 @@ body {
     .nsfw-header {
         padding: 1.2rem 2rem;
     }
+    .nsfw-header .desktop-nav,
+    .nsfw-header .desktop-actions {
+        display: none; /* Hide desktop nav and actions */
+    }
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+
     .video-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         padding: 2rem;
@@ -579,5 +652,12 @@ body {
 
 /* Large devices (desktops, 1025px and up) */
 @media (min-width: 1025px) {
-    /* Desktop specific adjustments if needed, but primary styles should already work well */
+    .hamburger,
+    .mobile-nav-overlay {
+        display: none; /* Ensure these are hidden on desktop */
+    }
+    .nsfw-header .desktop-nav,
+    .nsfw-header .desktop-actions {
+        display: flex; /* Ensure desktop nav and actions are visible */
+    }
 }
